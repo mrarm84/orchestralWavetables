@@ -1,0 +1,19 @@
+#pragma once
+
+#include "pcb_version.hh"
+
+#define TICKS_PER_MS 10
+
+#if (PCB_VERSION==2)
+#define BOOTLOADER_INPUT_GPIO GPIOC
+#define BOOTLOADER_INPUT_PIN LL_GPIO_PIN_0
+#define BOOTLOADER_INPUT_RCC LL_AHB1_GRP1_PERIPH_GPIOC
+
+#elif (PCB_VERSION==3)
+#define BOOTLOADER_INPUT_GPIO GPIOB
+#define BOOTLOADER_INPUT_PIN LL_GPIO_PIN_8
+#define BOOTLOADER_INPUT_RCC LL_AHB1_GRP1_PERIPH_GPIOB
+
+#else
+#error "bootloader.hh does not recognize PCB_VERSION"
+#endif
